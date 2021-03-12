@@ -212,6 +212,8 @@
 (defun elisp-demos-for-helpful ()
   "Find a demo for the current `helpful' buffer."
   (interactive)
+  (unless (derived-mode-p 'helpful-mode)
+    (user-error "Must be in a `helpful' buffer"))
   (elisp-demos-find-demo helpful--sym))
 
 ;;; * JSON
